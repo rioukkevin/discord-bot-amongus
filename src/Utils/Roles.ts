@@ -1,5 +1,3 @@
-enum Roles {
-	EXAMPLE = '602194770084888650',
-}
+enum Roles {}
 
 export default Roles
