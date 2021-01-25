@@ -8,7 +8,7 @@ export default class Emojis implements CommandInterface {
 		const emojis = await msg.guild?.emojis.cache
 			.array()
 			.map((e) => e.name)
-			.join(' ')
+			.join('\n')
 		console.log('Toto', emojis)
 		msg.channel.send(emojis ?? 'None')
 	}

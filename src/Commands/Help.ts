@@ -22,20 +22,20 @@ export default class Help implements CommandInterface {
 		})
 
 		commands.forEach((command: any) => {
-			embed.addField(`${command.name} (${Env.get('CLIENT_PREFIX')}${command.tag})`, `\n${command.description}\n__Required roles :__ ${this.fetchRoles(message, command.roles).join(', ')}`)
+			embed.addField(`${command.name} (${Env.get('CLIENT_PREFIX')}${command.tag})`, `\n${command.description}`)
 		})
 		return embed
 	}
 
-	private fetchRoles(message: Message, roles: Array<string>): any {
-		if (roles.length != 0) {
-			let element: Array<string> = []
-			roles.forEach((role) => {
-				const r = message.guild!.roles.cache.get(role)!.name
-				element.push(r.charAt(0).toUpperCase() + r.slice(1))
-			})
-			return element
-		}
-		return []
-	}
+	// private fetchRoles(message: Message, roles: Array<string>): any {
+	// 	if (roles.length != 0) {
+	// 		let element: Array<string> = []
+	// 		roles.forEach((role) => {
+	// 			const r = message.guild!.roles.cache.get(role)!.name
+	// 			element.push(r.charAt(0).toUpperCase() + r.slice(1))
+	// 		})
+	// 		return element
+	// 	}
+	// 	return []
+	// }
 }

@@ -8,7 +8,7 @@ const emojiToString = (e: Emoji) => {
 }
 
 @Command({ name: 'Display week availability', description: 'A command that display week disponibility with colors reactions', tag: 'week', roles: [] })
-export default class Example implements CommandInterface {
+export default class Week implements CommandInterface {
 	public async run(msg: Message, args: string[]): Promise<void> {
 		const emojis = await msg.client.emojis.cache.array()
 		const botMsg = await msg.channel.send(`Quand êtes vous disponibles ?
