@@ -1,10 +1,10 @@
 import 'module-alias/register'
 import Bot from '@discord-ts-app/core/build/Bot'
 import Env from '@discord-ts-app/core/build/Utils/Env'
-import { AddEmoji, Week, Help, Emojis, Hour } from 'App/Commands'
+import { Week, Help, Hour } from 'App/Commands'
 import { Ready, Message } from 'App/Events'
 
-Bot.registerCommands([Week, Help, AddEmoji, Emojis, Hour])
+Bot.registerCommands([Week, Help, Hour])
     .registerEvents([Ready, Message])
     .registerMiddlewares([])
     .registerModules([])
