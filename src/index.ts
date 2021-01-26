@@ -11,7 +11,7 @@ app.use(async ctx => {
     ctx.body = 'AmongUs Bot';
 });
 
-app.listen(8000);
+app.listen(Env.get('CLIENT_PORT'));
 
 Bot.registerCommands([Week, Help, Hour])
     .registerEvents([Ready, Message])
