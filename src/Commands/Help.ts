@@ -5,7 +5,7 @@ import { CommandInterface } from '@discord-ts-app/core/build/Interfaces'
 import Env from '@discord-ts-app/core/build/Utils/Env'
 import { Message, MessageEmbed } from 'discord.js'
 
-@Command({ name: 'Help', description: 'List all registered commands', tag: 'help', roles: [] })
+@Command({ name: 'Help', description: 'List all registered commands', tag: '!help', roles: [] })
 export default class Help implements CommandInterface {
 	public async run(msg: Message, args: string[]): Promise<void> {
 		await msg.reply(this.makeEmbed(msg))
@@ -19,6 +19,7 @@ export default class Help implements CommandInterface {
 			description: `Here are the commands available for the bot ${user!.username}`,
 			footer: { text: user!.username, iconURL: user!.displayAvatarURL() },
 			thumbnail: { url: user!.displayAvatarURL() },
+			color: '#FBFBFB',
 		})
 
 		commands.forEach((command: any) => {
