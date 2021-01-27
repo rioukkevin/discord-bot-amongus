@@ -23,7 +23,7 @@ export default class Hour implements CommandInterface {
 			})
 		)
 		const sendedMsg = await msg.channel.send(embed)
-		await msg.delete()
+		await msg.delete({ timeout: 100 })
 		emojis.map((e) => sendedMsg.react(e))
 	}
 }
