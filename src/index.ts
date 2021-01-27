@@ -5,13 +5,36 @@ import { Week, Help, Hour } from 'App/Commands'
 import { Ready, Message } from 'App/Events'
 import Koa from 'koa'
 
+const http = require('http');
+
+const middleware = () => {
+  const url = middleware.getUrl();
+
+  setInterval(() => http.get(url), 3 * 60 * 1000);
+
+  return async (ctx: any, next: () => void) => {
+    if (ctx.path === '/keepalive') {
+      ctx.status = 200;
+      ctx.type = 'text';
+      ctx.body = 'OK';
+    }
+
+    await next();
+  }
+};
+
+middleware.getUrl = () => {
+  return `http://discord-bot-amongus-keke.herokuapp.com/keepalive`;
+};
+
 const app = new Koa();
 
+app.use(middleware)
 app.use(async ctx => {
     ctx.body = 'AmongUs Bot';
 });
 
-app.listen(Env.get('CLIENT_PORT'));
+app.listen(process.env.PORT);
 
 Bot.registerCommands([Week, Help, Hour])
     .registerEvents([Ready, Message])
