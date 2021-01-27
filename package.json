@@ -4,7 +4,8 @@
 	"main": "./build/index.js",
 	"scripts": {
 		"dev": "tsc -w",
-		"start": "cross-env NODE_ENV=development && nodemon ./build/index.js",
+		"starting": "cross-env NODE_ENV=development && nodemon ./build/index.js",
+		"start":"node ./build/index.js",
 		"build": "tsc",
 		"production": "cross-env NODE_ENV=production && node ./build/index.js",
 		"heroku-postbuild": "tsc"
